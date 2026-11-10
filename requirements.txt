@@ -1,0 +1,4 @@
+fastapi[Standard]
+pydantic_setting
+SQLAlchemy
+PyMySQL
