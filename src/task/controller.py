@@ -9,17 +9,17 @@ def create_task(body:TaskSchema,db:Session):
     db.add(new_task)
     db.commit()
     db.refresh(new_task)
-    return {"status":"success","message":"Task created successfully","data":new_task}
+    return new_task
 
 def get_all_tasks(db:Session):
     tasks = db.query(TaskModel).all()
-    return {"status":"success","message":"Tasks fetched successfully","data":tasks}
+    return tasks
 
 def get_one_task(task_id:int,db:Session):
     one_task = db.query(TaskModel).get(task_id)
     if not one_task:
         raise HTTPException(status_code=404, detail="Task not found")
-    return {"status":"success","message":"Task fetched successfully","data":one_task}
+    return one_task
 
 def update_task(body:TaskSchema,task_id:int,db:Session):
     one_task = db.query(TaskModel).get(task_id)
@@ -34,7 +34,7 @@ def update_task(body:TaskSchema,task_id:int,db:Session):
     db.add(one_task)
     db.commit()
     db.refresh(one_task)
-    return {"status":"success","message":"Task Updates successfully","data":one_task}
+    return one_task
 
 def delete_task(task_id:int, db:Session):
     one_task = db.query(TaskModel).get(task_id)
@@ -43,4 +43,4 @@ def delete_task(task_id:int, db:Session):
     db.delete(one_task)
     db.commit()
 
-    return {"status":"success","message":"Task Deleted Successfully"}
+    return None
