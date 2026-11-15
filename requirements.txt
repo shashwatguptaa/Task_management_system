@@ -2,3 +2,5 @@ fastapi[Standard]
 pydantic_setting
 SQLAlchemy
 PyMySQL
+PyJWT
+pwdlib[argon2]
