@@ -11,7 +11,7 @@ task_router = APIRouter(prefix="/tasks") #"https://127.0.0.1:8000/tasks"
 
 @task_router.post("/create",response_model = TaskResponseSchema,status_code = status.HTTP_201_CREATED)
 def create_task(body:TaskSchema,db:Session = Depends(get_db), user: UserModel = Depends(is_authenticated)):
-    return controller.create_task(body,db)
+    return controller.create_task(body,db,user)
 
 @task_router.get("/all_tasks",response_model = List[TaskResponseSchema],status_code = status.HTTP_200_OK)
 def get_all_tasks(db:Session = Depends(get_db), user: UserModel = Depends(is_authenticated)):

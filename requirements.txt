@@ -1,6 +1,7 @@
 fastapi[Standard]
-pydantic_setting
+pydantic_settings
 SQLAlchemy
 PyMySQL
 PyJWT
 pwdlib[argon2]
+alembic
