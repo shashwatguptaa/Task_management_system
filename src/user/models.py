@@ -1,7 +1,7 @@
 from src.utils.db import Base
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
 
-class TaskModel(Base):
+class UserModel(Base):
     __tablename__ = "user_table"
 
     id = Column(Integer, primary_key=True, index=True)
