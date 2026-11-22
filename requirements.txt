@@ -5,3 +5,4 @@ PyMySQL
 PyJWT
 pwdlib[argon2]
 alembic
+fastapi-mail

@@ -7,12 +7,13 @@ from datetime import datetime, timedelta
 import jwt
 from jwt.exceptions import ExpiredSignatureError, InvalidTokenError
 from src.utils.settings import settings
+from src.utils.mail import send_email
 
 password_hash = PasswordHash.recommended()
 def get_password_hash(password:str):
     return password_hash.hash(password)
 
-def register(body:UserSchema,db:Session):
+async def register(body:UserSchema,db:Session):
     is_user = db.query(UserModel).filter(UserModel.username==body.username).first()
     if is_user:
         raise HTTPException(status_code=400,detail="User already exists")
@@ -24,6 +25,7 @@ def register(body:UserSchema,db:Session):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+    await send_email([new_user.email])
     return new_user
 
 def login_user(body:LoginSchema,db:Session):
