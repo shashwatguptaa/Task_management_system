@@ -118,3 +118,5 @@ The goal of this project is to develop a structured, maintainable, and scalable 
 
 ---
 
+**Status:** 🚧 Under Active Development
+
