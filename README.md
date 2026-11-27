@@ -104,10 +104,7 @@ Once the application is running, access the interactive API documentation:
 
 ## 🚧 Upcoming Improvements
 
-- Complete CRUD operations for tasks
-- Alembic database migrations
-- User authentication and authorization using JWT
-- Pagination and filtering
+- AI Integration
 - Improved error handling and validation
 - Docker integration
 - Cloud deployment
